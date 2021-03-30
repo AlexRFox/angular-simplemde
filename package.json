@@ -1,6 +1,6 @@
 {
   "name": "angular-simplemde-resettable",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dist-build": "ng build angular-simplemde && cp README.md dist/angular-simplemde/README.md"
+    "dist-build": "ng build angular-simplemde-resettable && cp README.md dist/angular-simplemde-resettable/README.md"
   },
   "homepage": "https://github.com/AlexWillisson/angular-simplemde",
   "dependencies": {

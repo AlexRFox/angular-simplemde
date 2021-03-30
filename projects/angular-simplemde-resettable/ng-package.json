@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/angular-simplemde",
+  "dest": "../../dist/angular-simplemde-resettable",
   "lib": {
     "entryFile": "src/public-api.ts"
   }

@@ -3,33 +3,33 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-simplemde": {
+    "angular-simplemde-resettable": {
       "projectType": "library",
-      "root": "projects/angular-simplemde",
-      "sourceRoot": "projects/angular-simplemde/src",
-      "prefix": "angular-simplemde",
+      "root": "projects/angular-simplemde-resettable",
+      "sourceRoot": "projects/angular-simplemde-resettable/src",
+      "prefix": "angular-simplemde-resettable",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/angular-simplemde/tsconfig.lib.json",
-            "project": "projects/angular-simplemde/ng-package.json"
+            "tsConfig": "projects/angular-simplemde-resettable/tsconfig.lib.json",
+            "project": "projects/angular-simplemde-resettable/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/angular-simplemde/src/test.ts",
-            "tsConfig": "projects/angular-simplemde/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-simplemde/karma.conf.js"
+            "main": "projects/angular-simplemde-resettable/src/test.ts",
+            "tsConfig": "projects/angular-simplemde-resettable/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-simplemde-resettable/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/angular-simplemde/tsconfig.lib.json",
-              "projects/angular-simplemde/tsconfig.spec.json"
+              "projects/angular-simplemde-resettable/tsconfig.lib.json",
+              "projects/angular-simplemde-resettable/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -157,5 +157,5 @@
         }
       }
     }},
-  "defaultProject": "angular-simplemde"
+  "defaultProject": "angular-simplemde-resettable"
 }

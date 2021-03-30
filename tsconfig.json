@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "angular-simplemde": [
-        "dist/angular-simplemde"
+      "angular-simplemde-resettable": [
+        "dist/angular-simplemde-resettable"
       ],
-      "angular-simplemde/*": [
-        "dist/angular-simplemde/*"
+      "angular-simplemde-resettable/*": [
+        "dist/angular-simplemde-resettable/*"
       ]
     }
   },
