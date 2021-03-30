@@ -9,16 +9,16 @@ import {
   Output,
   SimpleChanges,
   ViewChild,
-} from "@angular/core";
-import * as SimpleMDE from "simplemde";
-import { Observable } from "rxjs";
-import { MdeConfig } from "./mde-config";
-import { DefaultActions, ISimpleMdeConfig } from "./editor-config.model";
+} from '@angular/core';
+import * as SimpleMDE from 'simplemde';
+import { Observable } from 'rxjs';
+import { MdeConfig } from './mde-config';
+import { DefaultActions, ISimpleMdeConfig } from './editor-config.model';
 
 @Component({
-  selector: "angular-simplemde",
-  templateUrl: "./editor.component.html",
-  styleUrls: ["./editor.component.css"],
+  selector: 'angular-simplemde',
+  templateUrl: './editor.component.html',
+  styleUrls: ['./editor.component.css'],
 })
 export class EditorComponent implements OnInit, OnChanges {
   @Input() input: string;
@@ -27,7 +27,7 @@ export class EditorComponent implements OnInit, OnChanges {
 
   @Output() inputChange = new EventEmitter<string>();
 
-  @ViewChild("body", { static: true })
+  @ViewChild('body', { static: true })
   body: ElementRef;
   mde: any;
 
@@ -48,7 +48,7 @@ export class EditorComponent implements OnInit, OnChanges {
       }
 
       this.mde = new SimpleMDE(mdeConfig);
-      this.mde.codemirror.on("change", () => {
+      this.mde.codemirror.on('change', () => {
         this.emitValue(this.mde.value());
       });
     }, 0);
@@ -58,8 +58,8 @@ export class EditorComponent implements OnInit, OnChanges {
     for (const propName in changes) {
       if (changes.hasOwnProperty(propName)) {
         switch (propName) {
-          case "input": {
-            if (this.mde && this.input === "") {
+          case 'input': {
+            if (this.mde && this.input === '') {
               this.mde.value(this.input);
             }
           }
@@ -77,7 +77,7 @@ export class EditorComponent implements OnInit, OnChanges {
       actions = this.config.actions;
     }
     for (const action of actions) {
-      if (action === "|") {
+      if (action === '|') {
         toolbar.push(action);
       } else {
         const clickAction = !action.simpleMdeAction
@@ -99,13 +99,13 @@ export class EditorComponent implements OnInit, OnChanges {
     this.inputChange.emit(value);
   }
 
-  @HostListener("document:click", ["$event"])
+  @HostListener('document:click', ['$event'])
   toolBarListener($event) {
     const classList = $event.target.classList;
 
     if (this.config && this.config.actions) {
       for (const action of this.config.actions) {
-        if (action === "|") {
+        if (action === '|') {
           continue;
         }
 
