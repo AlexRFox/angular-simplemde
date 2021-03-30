@@ -1,6 +1,6 @@
 {
-  "name": "angular-simplemde",
-  "version": "0.0.0",
+  "name": "angular-simplemde-resettable",
+  "version": "0.0.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "dist-build": "ng build angular-simplemde && cp README.md dist/angular-simplemde/README.md"
   },
-  "homepage": "https://github.com/xetys/angular-simplemde",
+  "homepage": "https://github.com/AlexWillisson/angular-simplemde",
   "dependencies": {
     "@angular/animations": "~8.2.9",
     "@angular/common": "~8.2.9",
