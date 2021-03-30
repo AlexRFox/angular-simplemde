@@ -59,7 +59,7 @@ export class EditorComponent implements OnInit, OnChanges {
       if (changes.hasOwnProperty(propName)) {
         switch (propName) {
           case "input": {
-            if (this.input === "") {
+            if (this.mde && this.input === "") {
               this.mde.value(this.input);
             }
           }

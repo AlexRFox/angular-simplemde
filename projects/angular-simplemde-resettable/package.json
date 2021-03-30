@@ -1,6 +1,6 @@
 {
   "name": "angular-simplemde-resettable",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "homepage": "https://github.com/AlexWillisson/angular-simplemde",
   "peerDependencies": {
     "@angular/common": "^8.2.9",
