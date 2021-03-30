@@ -1,5 +1,7 @@
 # Angular Simplemde 
 
+Forked from [angular-simplemde](https://github.com/xetys/angular-simplemde).
+
 This is a angular wrapper for [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor).
 
 ## Install
