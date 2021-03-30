@@ -1,51 +1,71 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
-import * as SimpleMDE from 'simplemde';
-import { Observable } from 'rxjs';
-import { MdeConfig } from './mde-config';
-import { DefaultActions, ISimpleMdeConfig } from './editor-config.model';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild,
+} from "@angular/core";
+import * as SimpleMDE from "simplemde";
+import { Observable } from "rxjs";
+import { MdeConfig } from "./mde-config";
+import { DefaultActions, ISimpleMdeConfig } from "./editor-config.model";
 
 @Component({
-  selector: 'angular-simplemde',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css']
+  selector: "angular-simplemde",
+  templateUrl: "./editor.component.html",
+  styleUrls: ["./editor.component.css"],
 })
-export class EditorComponent implements OnInit {
-
+export class EditorComponent implements OnInit, OnChanges {
   @Input() input: string;
 
   @Input() config: ISimpleMdeConfig;
 
   @Output() inputChange = new EventEmitter<string>();
 
-  @ViewChild('body', {static: true})
+  @ViewChild("body", { static: true })
   body: ElementRef;
   mde: any;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
-    setTimeout(
-      () => {
-        this.body.nativeElement.value = this.input;
-        const mdeConfig: MdeConfig = {
-          element: this.body.nativeElement,
-          forceSync: true,
-          spellChecker: false,
-          toolbar: this.getToolBar()
-        };
+    setTimeout(() => {
+      this.body.nativeElement.value = this.input;
+      const mdeConfig: MdeConfig = {
+        element: this.body.nativeElement,
+        forceSync: true,
+        spellChecker: false,
+        toolbar: this.getToolBar(),
+      };
 
-        if (this.config && this.config.previewRenderer) {
-            mdeConfig.previewRender = this.config.previewRenderer;
+      if (this.config && this.config.previewRenderer) {
+        mdeConfig.previewRender = this.config.previewRenderer;
+      }
+
+      this.mde = new SimpleMDE(mdeConfig);
+      this.mde.codemirror.on("change", () => {
+        this.emitValue(this.mde.value());
+      });
+    }, 0);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    for (const propName in changes) {
+      if (changes.hasOwnProperty(propName)) {
+        switch (propName) {
+          case "input": {
+            if (this.input === "") {
+              this.mde.value(this.input);
+            }
+          }
         }
-
-        this.mde = new SimpleMDE(mdeConfig);
-        this.mde.codemirror.on('change', () => {
-          this.emitValue(this.mde.value());
-        });
-      },
-      0
-    );
+      }
+    }
   }
 
   private getToolBar() {
@@ -57,15 +77,17 @@ export class EditorComponent implements OnInit {
       actions = this.config.actions;
     }
     for (const action of actions) {
-      if (action === '|') {
+      if (action === "|") {
         toolbar.push(action);
       } else {
-        const clickAction = !action.simpleMdeAction ? () => {} : action.simpleMdeAction;
+        const clickAction = !action.simpleMdeAction
+          ? () => {}
+          : action.simpleMdeAction;
         toolbar.push({
           name: action.name,
           title: action.title,
           className: `fa ${action.icon} x-simplemde-action-${action.name}`,
-          action: clickAction
+          action: clickAction,
         });
       }
     }
@@ -77,13 +99,13 @@ export class EditorComponent implements OnInit {
     this.inputChange.emit(value);
   }
 
-  @HostListener('document:click', ['$event'])
+  @HostListener("document:click", ["$event"])
   toolBarListener($event) {
     const classList = $event.target.classList;
 
     if (this.config && this.config.actions) {
       for (const action of this.config.actions) {
-        if (action === '|') {
+        if (action === "|") {
           continue;
         }
 
@@ -94,7 +116,9 @@ export class EditorComponent implements OnInit {
           const output = action.action(selectedText);
 
           if (output instanceof Observable) {
-            output.subscribe(outputString => cm.replaceSelection(outputString));
+            output.subscribe((outputString) =>
+              cm.replaceSelection(outputString)
+            );
           } else {
             cm.replaceSelection(output);
           }
