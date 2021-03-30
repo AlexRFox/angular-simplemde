@@ -45,4 +45,4 @@ testem.log
 .DS_Store
 Thumbs.db
 /angular-simplemde.iml
-.tern_port
+.tern-port
