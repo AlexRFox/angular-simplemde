@@ -13,25 +13,25 @@
   },
   "homepage": "https://github.com/AlexWillisson/angular-simplemde",
   "dependencies": {
-    "@angular/animations": "^14.1.1",
-    "@angular/common": "^14.1.1",
-    "@angular/compiler": "~8.2.9",
-    "@angular/core": "^14.1.1",
-    "@angular/forms": "^14.1.1",
-    "@angular/platform-browser": "^14.1.1",
-    "@angular/platform-browser-dynamic": "^14.1.1",
-    "@angular/router": "^14.1.1",
-    "rxjs": "~6.4.0",
+    "@angular/animations": "^14.1.2",
+    "@angular/common": "^14.1.2",
+    "@angular/compiler": "~14.1.2",
+    "@angular/core": "^14.1.2",
+    "@angular/forms": "^14.1.2",
+    "@angular/platform-browser": "^14.1.2",
+    "@angular/platform-browser-dynamic": "^14.1.2",
+    "@angular/router": "^14.1.2",
+    "rxjs": "~7.5.6",
     "simplemde": "^1.11.2",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.11.8"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.1.1",
     "@angular-devkit/build-ng-packagr": "~0.803.9",
     "@angular/cli": "^11.2.6",
-    "@angular/compiler-cli": "^14.1.1",
-    "@angular/language-service": "~8.2.9",
+    "@angular/compiler-cli": "^14.1.2",
+    "@angular/language-service": "~14.1.2",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -48,6 +48,6 @@
     "ts-node": "~7.0.0",
     "tsickle": "^0.37.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "~4.7.4"
   }
 }
