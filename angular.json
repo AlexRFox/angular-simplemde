@@ -31,9 +31,7 @@
               "projects/angular-simplemde-resettable/tsconfig.lib.json",
               "projects/angular-simplemde-resettable/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -124,9 +122,7 @@
               "projects/editor-demo/src/favicon.ico",
               "projects/editor-demo/src/assets"
             ],
-            "styles": [
-              "projects/editor-demo/src/styles.css"
-            ],
+            "styles": ["projects/editor-demo/src/styles.css"],
             "scripts": []
           }
         },
@@ -138,9 +134,7 @@
               "projects/editor-demo/tsconfig.spec.json",
               "projects/editor-demo/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -156,6 +150,6 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-simplemde-resettable"
+    }
+  }
 }
